@@ -1,0 +1,102 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Lobster', sans-serif;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: beige;
+}
+
+.card {
+	height: 150px;
+	width: 150px;
+
+	position: relative;
+
+	transform-style: preserve-3d;
+
+	transition: transform 0.5s;
+}
+
+.card:hover {
+	cursor: pointer;
+}
+
+.card_front,
+.card_back {
+	height: 100%;
+	width: 100%;
+
+	position: absolute;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 20px;
+
+	box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.45);
+
+	backface-visibility: hidden;
+}
+
+.card_front {
+	background-color: #101c2c;
+	transform: rotateY(180deg);
+}
+
+.card_back {
+	color: #101c2c;
+	background-color: #05c3ff;
+	font-size: 30px;
+}
+
+.flip {
+	transform: rotateY(180deg);
+}
+
+#gameBoard {
+	max-width: 700px;
+	display: grid;
+	grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+	gap: 20px;
+}
+
+#gameOver {
+	position: absolute;
+	top: 0px;
+
+	height: 100%;
+	width: 100%;
+
+	background-color: rgb(0, 0, 0, 0.8);
+
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#gameOver h1 {
+	font-size: 60px;
+	color: white;
+}
+
+#restart {
+	margin-top: 40px;
+	padding: 20px;
+	font-size: 30px;
+
+	background-color: yellow;
+	border-radius: 10px;
+	border: none;
+}
